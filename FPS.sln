@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Utili
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonChat", "PhotonChat.csproj", "{0ccb76e3-0459-8071-f75d-812e4a9dd705}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "External", "External.csproj", "{83dac152-2c4e-58fd-2e30-9372b050a14b}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Editor", "PhotonUnityNetworking.Editor.csproj", "{4e54d3b6-25ff-e447-bbf7-dd3cb566cf0c}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Utilities.PhotonPlayer.Editor", "PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj", "{bf4485fd-543b-4eb1-5fb6-75020f4b6f8b}"
@@ -40,6 +42,8 @@ Global
 		{808e1109-2dd6-a679-9c12-5d2c9d3e16fc}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ccb76e3-0459-8071-f75d-812e4a9dd705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0ccb76e3-0459-8071-f75d-812e4a9dd705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83dac152-2c4e-58fd-2e30-9372b050a14b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83dac152-2c4e-58fd-2e30-9372b050a14b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4e54d3b6-25ff-e447-bbf7-dd3cb566cf0c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4e54d3b6-25ff-e447-bbf7-dd3cb566cf0c}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{bf4485fd-543b-4eb1-5fb6-75020f4b6f8b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
