@@ -17,7 +17,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject roomItemPrefab;
     [SerializeField] private Transform playeristParent;
     [SerializeField] private GameObject playerItemPrefab;
-
+    [SerializeField] private GameObject startGameButton;
+    
     public static Launcher Instance;
 
     private void Awake()
@@ -35,6 +36,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Debug.Log($"OnConnectedToServer");
         PhotonNetwork.JoinLobby();
+
+        PhotonNetwork.AutomaticallySyncScene = true; 
     }
 
     public override void OnJoinedLobby()
@@ -58,9 +61,20 @@ public class Launcher : MonoBehaviourPunCallbacks
         MenuHandler.Instance.OpenMenu("roomMenu");
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
         
+        startGameButton.SetActive(PhotonNetwork.IsMasterClient);
+        
         Player[] players = PhotonNetwork.PlayerList;
+
+        foreach (Transform player in playeristParent)
+            Destroy(player.gameObject);
+        
         for (int i = 0; i < players.Length; i++) 
             Instantiate(playerItemPrefab,playeristParent).GetComponent<PlayerDetail>().SetPlayerDetails(players[i]);
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        startGameButton.SetActive(PhotonNetwork.IsMasterClient);
     }
 
     public override void OnCreateRoomFailed(short returnCode,string msg)
@@ -89,13 +103,26 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         foreach (Transform room in roomListParent) 
             Destroy(room.gameObject);
-        
+
         for (int i = 0; i < roomList.Count; i++)
-            Instantiate(roomItemPrefab,roomListParent).GetComponent<RoomDetail>().RoomDetails(roomList[i]); 
+        {
+            if(roomList[i].RemovedFromList)
+                continue;
+            Instantiate(roomItemPrefab,roomListParent).GetComponent<RoomDetail>().RoomDetails(roomList[i]);
+        } 
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Instantiate(playerItemPrefab,playeristParent).GetComponent<PlayerDetail>().SetPlayerDetails(newPlayer);
     }
+
+    #region GameStart
+
+    public void StartGame()
+    {
+        PhotonNetwork.LoadLevel(1);
+    }
+
+    #endregion
 }

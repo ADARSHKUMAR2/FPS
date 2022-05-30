@@ -7,7 +7,7 @@ using UnityEngine;
 public class RoomDetail : MonoBehaviour
 {
     [SerializeField] private TMP_Text roomName;
-    private RoomInfo _roomInfo;
+    public RoomInfo _roomInfo;
     public void RoomDetails(RoomInfo roomInfo)
     {
         _roomInfo = roomInfo;
