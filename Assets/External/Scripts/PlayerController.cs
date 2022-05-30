@@ -25,8 +25,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        if(!PV.IsMine)
+        if (!PV.IsMine)
+        {
             Destroy(GetComponentInChildren<Camera>().gameObject);
+            Destroy(rb);
+        }
     }
 
     private void Update()
@@ -67,6 +70,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!PV.IsMine)
+            return;
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
     }
 }
