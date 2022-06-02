@@ -50,6 +50,9 @@
      <Compile Include="Assets/External/Scripts/PlayerManager.cs" />
      <Compile Include="Assets/External/Scripts/PlayerController.cs" />
      <Compile Include="Assets/External/Scripts/PlayerGroundCheck.cs" />
+     <Compile Include="Assets/External/Scripts/ItemInfo.cs" />
+     <Compile Include="Assets/External/Scripts/GunInfo.cs" />
+     <Compile Include="Assets/External/Scripts/Item.cs" />
      <None Include="Assets/External/External.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.3f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

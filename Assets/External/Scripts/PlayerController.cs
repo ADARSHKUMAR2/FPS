@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
     [SerializeField] private GameObject cameraHolder;
+    [SerializeField] private Item[] items;
     
     private float verticalLookRotation;
     private bool isGrounded;
@@ -17,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private PhotonView PV;
 
+    private int itemIndex;
+    private int prevItemIndex = -1;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,7 +28,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        if (!PV.IsMine)
+        if (PV.IsMine)
+        {
+            EquipItem(0);   
+        }
+        else
         {
             Destroy(GetComponentInChildren<Camera>().gameObject);
             Destroy(rb);
@@ -39,6 +46,27 @@ public class PlayerController : MonoBehaviour
         Look();
         Move();
         Jump();
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (Input.GetKeyDown((i + 1).ToString()))
+            {
+                EquipItem(i);
+                break;
+            }
+        }
+
+        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0f)
+            if (itemIndex >= items.Length - 1)
+                EquipItem(0);
+            else
+                EquipItem(itemIndex + 1);
+        else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0f)
+            if (itemIndex <= 0)
+                EquipItem(items.Length - 1);
+            else
+                EquipItem(itemIndex - 1);
+
+
     }
 
     private void Jump()
@@ -68,6 +96,20 @@ public class PlayerController : MonoBehaviour
         isGrounded = _grounded;
     }
 
+    private void EquipItem(int _index)
+    {
+        if(_index == prevItemIndex)
+            return;
+        
+        itemIndex = _index;
+        items[itemIndex].itemGameObject.SetActive(true);
+        
+        if(prevItemIndex!=-1)
+            items[prevItemIndex].itemGameObject.SetActive(false);
+
+        prevItemIndex = itemIndex;
+    }
+    
     private void FixedUpdate()
     {
         if(!PV.IsMine)
