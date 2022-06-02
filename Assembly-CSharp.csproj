@@ -41,20 +41,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs" />
      <Compile Include="Assets/Photon/PhotonLibs/WebSocket/SocketWebTcp.cs" />
-     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/ChatAppIdCheckerUI.cs" />
-     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/AppSettingsExtensions.cs" />
-     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/ChannelSelector.cs" />
-     <Compile Include="Assets/Photon/PhotonChat/Demos/Common/EventSystemSpawner.cs" />
      <Compile Include="Assets/Photon/PhotonLibs/WebSocket/WebSocket.cs" />
-     <Compile Include="Assets/Photon/PhotonChat/Demos/Common/TextButtonTransition.cs" />
-     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/NamePickGui.cs" />
-     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/IgnoreUiRaycastWhenInactive.cs" />
-     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/FriendItem.cs" />
-     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/ChatGui.cs" />
-     <Compile Include="Assets/Photon/PhotonChat/Demos/Common/TextToggleIsOnTransition.cs" />
-     <Compile Include="Assets/Photon/PhotonChat/Demos/Common/OnStartDelete.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.xml" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
@@ -802,6 +790,10 @@
       <Project>{f38ce991-dc55-9575-62c0-e72a7dd5e563}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="External.csproj">
+      <Project>{83dac152-2c4e-58fd-2e30-9372b050a14b}</Project>
+      <Name>External</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
       <Project>{4e54d3b6-25ff-e447-bbf7-dd3cb566cf0c}</Project>
       <Name>PhotonUnityNetworking.Editor</Name>
@@ -809,10 +801,6 @@
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
       <Project>{bf4485fd-543b-4eb1-5fb6-75020f4b6f8b}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
-      <Project>{748545b3-0164-f039-7cd9-8321fdf58fe4}</Project>
-      <Name>PunDemos.DemoHubEditor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonRealtime.csproj">
       <Project>{c06f335e-41f9-788e-3bac-24a87c1c7d3c}</Project>
@@ -825,18 +813,6 @@
     <ProjectReference Include="PhotonUnityNetworking.csproj">
       <Project>{18c8d9e3-42c6-0d56-161c-b1997cc2a296}</Project>
       <Name>PhotonUnityNetworking</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Demos.csproj">
-      <Project>{a2babd84-6cfb-0f09-cbd3-680bc8efb473}</Project>
-      <Name>PhotonUnityNetworking.Demos</Name>
-    </ProjectReference>
-    <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
-      <Project>{9ae881d1-adde-d9a3-cd74-14170ab5618f}</Project>
-      <Name>PunDemos.DemoSlotcarEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="External.csproj">
-      <Project>{83dac152-2c4e-58fd-2e30-9372b050a14b}</Project>
-      <Name>External</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
