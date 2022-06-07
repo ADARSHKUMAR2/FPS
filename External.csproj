@@ -43,16 +43,18 @@
   <ItemGroup>
      <Compile Include="Assets/External/Scripts/PlayerDetail.cs" />
      <Compile Include="Assets/External/Scripts/Menu.cs" />
+     <Compile Include="Assets/External/Scripts/GunsScripts/ItemInfo.cs" />
+     <Compile Include="Assets/External/Scripts/PlayerController.cs" />
+     <Compile Include="Assets/External/Scripts/PlayerManager.cs" />
+     <Compile Include="Assets/External/Scripts/GunsScripts/GunInfo.cs" />
+     <Compile Include="Assets/External/Scripts/GunsScripts/Item.cs" />
      <Compile Include="Assets/External/Scripts/RoomManager.cs" />
      <Compile Include="Assets/External/Scripts/RoomDetail.cs" />
      <Compile Include="Assets/External/Scripts/Launcher.cs" />
-     <Compile Include="Assets/External/Scripts/MenuHandler.cs" />
-     <Compile Include="Assets/External/Scripts/PlayerManager.cs" />
-     <Compile Include="Assets/External/Scripts/PlayerController.cs" />
      <Compile Include="Assets/External/Scripts/PlayerGroundCheck.cs" />
-     <Compile Include="Assets/External/Scripts/ItemInfo.cs" />
-     <Compile Include="Assets/External/Scripts/GunInfo.cs" />
-     <Compile Include="Assets/External/Scripts/Item.cs" />
+     <Compile Include="Assets/External/Scripts/MenuHandler.cs" />
+     <Compile Include="Assets/External/Scripts/GunsScripts/Gun.cs" />
+     <Compile Include="Assets/External/Scripts/GunsScripts/SingleShotGun.cs" />
      <None Include="Assets/External/External.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.3f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

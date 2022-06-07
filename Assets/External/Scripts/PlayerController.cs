@@ -68,7 +68,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
             else
                 EquipItem(itemIndex - 1);
 
-
+        if (Input.GetMouseButtonDown(0))
+            items[itemIndex].Use();
     }
 
     private void Jump()
