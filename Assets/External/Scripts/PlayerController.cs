@@ -77,6 +77,9 @@ public class PlayerController : MonoBehaviourPunCallbacks,IDamageable
 
         if (Input.GetMouseButtonDown(0))
             items[itemIndex].Use();
+        
+        if(transform.position.y < -10f)
+            Die();
     }
 
     private void Jump()
