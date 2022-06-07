@@ -26,10 +26,13 @@ public class PlayerController : MonoBehaviourPunCallbacks,IDamageable
     
     const float maxHealth = 100f;
     private float currHealth = maxHealth;
+
+    private PlayerManager playerManager;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
+        playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
     }
 
     private void Start()
@@ -164,6 +167,6 @@ public class PlayerController : MonoBehaviourPunCallbacks,IDamageable
 
     private void Die()
     {
-        
+        playerManager.Die();
     }
 }
