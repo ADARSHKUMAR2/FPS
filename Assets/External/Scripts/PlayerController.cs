@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using External.Scripts;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-public class PlayerController : MonoBehaviourPunCallbacks
+public class PlayerController : MonoBehaviourPunCallbacks,IDamageable
 {
     [SerializeField] private float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
     [SerializeField] private GameObject cameraHolder;
@@ -22,6 +23,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private int itemIndex;
     private int prevItemIndex = -1;
+    
+    const float maxHealth = 100f;
+    private float currHealth = maxHealth;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -139,5 +143,27 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if(!PV.IsMine)
             return;
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+    }
+
+    public void TakeDamage(float damageAmount)
+    {
+        PV.RPC("RPC_TakeDamage",RpcTarget.All,damageAmount);
+    }
+
+    [PunRPC]
+    public void RPC_TakeDamage(float damage)
+    {
+        if(!PV.IsMine)
+            return;
+        
+        Debug.Log($"Took Damage {damage}");
+        currHealth -= damage;
+        if (currHealth < 0f)
+            Die();
+    }
+
+    private void Die()
+    {
+        
     }
 }
